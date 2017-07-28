@@ -41,7 +41,7 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
     open var notificationCenter: NotificationCenter?
     
     internal let passcodeConfiguration: PasscodeLockConfigurationType
-    internal let passcodeLock: PasscodeLockType
+    internal var passcodeLock: PasscodeLockType
     internal var isPlaceholdersAnimationCompleted = true
     
     fileprivate var shouldTryToAuthenticateWithBiometrics = true
@@ -64,9 +64,9 @@ open class PasscodeLockViewController: UIViewController, PasscodeLockTypeDelegat
         notificationCenter = NotificationCenter.default
     }
     
-    public convenience init(state: LockState, configuration: PasscodeLockConfigurationType, animateOnDismiss: Bool = true) {
+    public convenience init(state: LockState, config: PasscodeLockConfigurationType, animateOnDismiss: Bool = true) {
         
-        self.init(state: state.getState(), configuration: configuration, animateOnDismiss: animateOnDismiss)
+        self.init(state: state.getState(), configuration: config, animateOnDismiss: animateOnDismiss)
     }
     
     public required init(coder aDecoder: NSCoder) {
